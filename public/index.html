@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diary Application</title>
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="./main.js" defer></script>
+</head>
+
+
+<body>
+    <button id="prev"><i class="fas fa-arrow-left fa-3x"></i></button>
+    <button id="nex"><i class="fas fa-arrow-right fa-3x"></i></button>
+</body>
+
+
+<div class="Container">
+
+    <div class="box1">
+        <div class="bx">
+        <div class="p"><a href="">Profile</a></div>
+        <div class="h"><a href="">Home</a></div>
+        </div>
+    </div>
+
+<!-- Book -->
+<div id="book" class="book">
+    <!-- Paper 1 -->
+    <div id="p1" class="paper">
+        <div class="front">
+            <div id="f1" class="front-content">
+                <textarea id="t1" maxlength="1800" placeholder="Write here for Front 1"></textarea>
+            </div>
+        </div>
+        <div class="back">
+            <div id="b1" class="back-content">
+                <textarea id="t2" maxlength="1800" placeholder="Write here for Back 1"></textarea>
+            </div>
+        </div>
+    </div>
+    <!-- Paper 2 -->
+    <div id="p2" class="paper">
+        <div class="front">
+            <div id="f2" class="front-content">
+                <textarea id="t3" maxlength="1800" placeholder="Write here for Front 2"></textarea>
+            </div>
+        </div>
+        <div class="back">
+            <div id="b2" class="back-content">
+                <textarea id="t4" maxlength="1800" placeholder="Write here for Back 2"></textarea>
+            </div>
+        </div>
+    </div>
+    <!-- Paper 3 -->
+    <div id="p3" class="paper">
+        <div class="front">
+            <div id="f3" class="front-content">
+                <textarea id="t5" maxlength="1800" placeholder="Write here for Front 3"></textarea>
+            </div>
+        </div>
+        <div class="back">
+            <div id="b3" class="back-content">
+                <textarea id="t6" maxlength="1800" placeholder="Write here for Back 3"></textarea>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<div>        
+    <p id="result"></p>
+</div>
+
+</div>
+<script>
+    function EmoScore() {
+        const input = ['t1', 't2', 't3', 't4', 't5', 't6'];
+        let FeedContents = '';
+
+        input.forEach(id => {
+        FeedContents += document.getElementById(id).value;
+        });
+        fetch(`/classify?Feed=${encodeURIComponent(FeedContents)}`)
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('result').innerText = data;
+            });
+    }
+</script>
+<div class="entries-container">
+<div class="pan1"></div>
+</div>
+</html>
