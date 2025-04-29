@@ -1,8 +1,10 @@
+/* Updated CSS with new color palette */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family:monospace;
+    font-family: monospace;
 }
 
 div {
@@ -11,24 +13,24 @@ div {
 
 body {
     margin: 0;
-    background:#d0ece7;
+    background: #F0DFB3; /* Soft Beige */
     overflow: hidden;
 }
 
 .box1 {
     width: 300px;
     height: 970px;
-    background:#73c6b6;
+    background: #D9964F; /* Warm Yellow */
 }
 
 .p,
-.h{
+.h {
     font-size: 17px;
-    top: 10px
+    top: 10px;
 }
 
 a {
-    color: white;
+    color: #FFFFFF; /* White */
     text-decoration: none;
 }
 
@@ -43,18 +45,18 @@ a {
 .bx {
     width: 300px;
     height: 50px;
-    background: black;
-    border: solid black;
+    background: #243A48; /* Deep Blue-Green */
+    border: solid #1F313D; /* Slightly darker blue-green */
     border-width: 0 0 4px 0;
 }
 
 .bx:hover {
-    box-shadow: 0px 4px 100px black;
+    box-shadow: 0px 4px 10px #243A48;
 }
 
 a:hover {
     transition: transform 0.3s, color 0.6s;
-    color: #6b8e23
+    color: #CC5842; /* Rusty Red */
 }
 
 /* Book */
@@ -63,8 +65,7 @@ a:hover {
     height: 700px;
     transition: transform 0.5s;
     left: 900px;
-    top: 150px;
-    
+    top: 90px;
 }
 
 .paper {
@@ -74,12 +75,11 @@ a:hover {
     top: 0;
     left: 0;
     perspective: 1500px;
-
 }
 
 .front,
 .back {
-    background-color: white;
+    background-color: #fff; /* Soft Beige */
     position: absolute;
     width: 100%;
     height: 100%;
@@ -87,18 +87,19 @@ a:hover {
     left: 0;
     transform-origin: left;
     transition: transform 0.5s;
-    border-radius:0px 20px 20px 0;
+    border-radius: 0px 20px 20px 0;
 }
 
 .front {
     z-index: 1;
     backface-visibility: hidden;
-    border-left: 3px solid brown;
+    border-left: 3px solid maroon; /* Warm Yellow */
 }
 
 .back {
     z-index: 0;
 }
+
 
 .front-content,
 .back-content {
@@ -110,7 +111,7 @@ a:hover {
 }
 
 .back-content {
-    transform: rotateY(180deg)
+    transform: rotateY(180deg);
 }
 
 /* Paper flip effect */
@@ -128,17 +129,31 @@ button {
     transition: transform 0.5s;
 }
 
+.say{
+    left: 1160px;
+    top: 840px;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: maroon;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 200px;
+}
+
 button:focus {
     outline: none;
 }
 
 button:hover i {
-    color: #636363;
+    color: #377C6C; /* Teal Green */
 }
 
 i {
     font-size: 50px;
-    color: gray;
+    color: #243A48; /* Deep Blue-Green */
 }
 
 /* Paper stack order */
@@ -154,7 +169,6 @@ i {
     z-index: 1;
 }
 
-
 button {
     position: absolute;
     left: 700px;
@@ -165,13 +179,18 @@ button {
     left: 1600px;
 }
 
-.front-content textarea, .back-content textarea {
-    width: 440px; 
-    height: 550px; 
-    resize: none; 
-    border:none;
-    outline:none;
+.front-content textarea,
+.back-content textarea {
+    width: 440px;
+    height: 600px;
+    resize: none;
+    background: #fff; /* Soft Beige */
+    color: #CC5842; /* Rusty Red */
+    border: none;
+    outline: none;
 }
+
+
 
 .entries-container {
     display: flex;
@@ -181,18 +200,22 @@ button {
 }
 
 .pan1 {
-    position: relative;
-    top:30px; /* Important for child positioning */
+    overflow: hidden;
     width: 300px;
-    height: auto; /* Allow dynamic height based on child content */
-    margin-top: 20px;
+    background-color: #377C6C; /* Teal Green */
+    border:1px solid black;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    position: relative;
+    top: 50px;
 }
+
 .entry {
     position: absolute;
     width: 280px;
     height: 50px;
-    background-color: black;
-    color: white;
+    background-color: #243A48; /* Deep Blue-Green */
+    color: #FFFFFF; /* White */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -203,10 +226,10 @@ button {
 }
 
 .pan1::-webkit-scrollbar-thumb {
-    background: #6b8e23;
+    background: #D9964F; /* Warm Yellow */
     border-radius: 6px;
 }
 
 .pan1::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: #F1F1F1; /* Light Neutral */
 }

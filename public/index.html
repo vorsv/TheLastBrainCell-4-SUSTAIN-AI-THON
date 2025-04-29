@@ -32,12 +32,12 @@
     <div id="p1" class="paper">
         <div class="front">
             <div id="f1" class="front-content">
-                <textarea id="t1" maxlength="1800" placeholder="Write here for Front 1"></textarea>
+                <textarea id="t1" maxlength="1800" placeholder="Open up your Mind ..."></textarea>
             </div>
         </div>
         <div class="back">
             <div id="b1" class="back-content">
-                <textarea id="t2" maxlength="1800" placeholder="Write here for Back 1"></textarea>
+                <textarea id="t2" maxlength="1800" ></textarea>
             </div>
         </div>
     </div>
@@ -45,12 +45,12 @@
     <div id="p2" class="paper">
         <div class="front">
             <div id="f2" class="front-content">
-                <textarea id="t3" maxlength="1800" placeholder="Write here for Front 2"></textarea>
+                <textarea id="t3" maxlength="1800" ></textarea>
             </div>
         </div>
         <div class="back">
             <div id="b2" class="back-content">
-                <textarea id="t4" maxlength="1800" placeholder="Write here for Back 2"></textarea>
+                <textarea id="t4" maxlength="1800" ></textarea>
             </div>
         </div>
     </div>
@@ -58,38 +58,37 @@
     <div id="p3" class="paper">
         <div class="front">
             <div id="f3" class="front-content">
-                <textarea id="t5" maxlength="1800" placeholder="Write here for Front 3"></textarea>
+                <textarea id="t5" maxlength="1800"></textarea>
             </div>
         </div>
         <div class="back">
             <div id="b3" class="back-content">
-                <textarea id="t6" maxlength="1800" placeholder="Write here for Back 3"></textarea>
+                <textarea id="t6" maxlength="1800" ></textarea>
             </div>
         </div>
     </div>
 
     
 </div>
-
-<div>        
-    <p id="result"></p>
-</div>
-
+    <button type="submit" id="Say" class="say" onclick="APIcall()"> What do you think </button>
 </div>
 <script>
-    function EmoScore() {
-        const input = ['t1', 't2', 't3', 't4', 't5', 't6'];
+
+
+    function APIcall() { 
+        const inputIds = ['t1', 't2', 't3', 't4', 't5', 't6'];
         let FeedContents = '';
 
-        input.forEach(id => {
+        inputIds.forEach(id => {
         FeedContents += document.getElementById(id).value;
         });
-        fetch(`/classify?Feed=${encodeURIComponent(FeedContents)}`)
-            .then(response => response.text())
-            .then(data => {
-                document.getElementById('result').innerText = data;
-            });
+        fetch(`/CallTheGem?prompt=${encodeURIComponent(FeedContents)}`)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('t6').innerText = data;
+        });
     }
+
 </script>
 <div class="entries-container">
 <div class="pan1"></div>
